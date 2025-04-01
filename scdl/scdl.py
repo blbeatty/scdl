@@ -1403,7 +1403,6 @@ def _add_metadata_to_stream(
         album_author=playlist_info["author"] if album_available else None,  # type: ignore[index]
         album_track_num=playlist_info["tracknumber_int"] if album_available else None,  # type: ignore[index]
         album_total_track_num=playlist_info["tracknumber_total"] if album_available else None,  # type: ignore[index]
-        encoder="LAME3.100"
     )
 
     mutagen_file = mutagen.File(stream)

@@ -35,7 +35,6 @@ class MetadataInfo:
     album_author: Optional[str]
     album_track_num: Optional[int]
     album_total_track_num: Optional[int]
-    encoder: Optional[str]
 
 
 @singledispatch
@@ -52,7 +51,7 @@ def _get_flac_pic(jpeg_data: bytes) -> flac.Picture:
 
 
 def _get_apic(jpeg_data: bytes) -> id3.APIC:
-        # encoding=3,
+    # encoding=3,
     return id3.APIC(
         encoding=2,
         mime=JPEG_MIME_TYPE,
@@ -140,10 +139,6 @@ def _(file: Union[wave.WAVE, mp3.MP3], meta: MetadataInfo) -> None:
 
     if meta.artwork_jpeg:
         file["APIC"] = _get_apic(meta.artwork_jpeg)
-
-    if meta.encoder:
-        file["TSSE"] = id3.TSSE(encoding=3, text=meta.encoder)
-
 
 @assemble_metadata.register(mp4.MP4)
 def _(file: mp4.MP4, meta: MetadataInfo) -> None:
