@@ -55,7 +55,7 @@ def _get_apic(jpeg_data: bytes) -> id3.APIC:
         encoding=3,
         mime=JPEG_MIME_TYPE,
         type=3,
-        desc="Cover",
+        desc="thumbnail",
         data=jpeg_data,
     )
 
