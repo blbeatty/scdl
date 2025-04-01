@@ -141,7 +141,7 @@ def _(file: Union[wave.WAVE, mp3.MP3], meta: MetadataInfo) -> None:
         file["APIC"] = _get_apic(meta.artwork_jpeg)
 
     if meta.encoder:
-        file["TENC"] = id3.TENC(encoding=3, text=meta.encoder)
+        file["TSSE"] = id3.TSSE(encoding=3, text=meta.encoder)
 
 
 @assemble_metadata.register(mp4.MP4)
