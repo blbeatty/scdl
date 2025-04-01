@@ -1399,7 +1399,7 @@ def _add_metadata_to_stream(
         artwork_jpeg=artwork_response.content if artwork_response else None,
         link=track.permalink_url,
         date=track.created_at.strftime("%Y-%m-%d %H:%M:%S"),
-        album_title=playlist_info["title"] if album_available else None,  # type: ignore[index]
+        album_title=playlist_info["title"] if album_available else track.title,  # type: ignore[index]
         album_author=playlist_info["author"] if album_available else None,  # type: ignore[index]
         album_track_num=playlist_info["tracknumber_int"] if album_available else None,  # type: ignore[index]
         album_total_track_num=playlist_info["tracknumber_total"] if album_available else None,  # type: ignore[index]
