@@ -52,8 +52,9 @@ def _get_flac_pic(jpeg_data: bytes) -> flac.Picture:
 
 
 def _get_apic(jpeg_data: bytes) -> id3.APIC:
+        # encoding=3,
     return id3.APIC(
-        encoding=3,
+        encoding=2,
         mime=JPEG_MIME_TYPE,
         type=3,
         desc="thumbnail",
